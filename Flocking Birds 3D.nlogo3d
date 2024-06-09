@@ -563,7 +563,7 @@ wind-constant-x
 wind-constant-x
 0
 1
-0.3
+0.0
 0.1
 1
 NIL
@@ -578,7 +578,7 @@ wind-constant-y
 wind-constant-y
 0
 1
-0.3
+0.0
 0.1
 1
 NIL
