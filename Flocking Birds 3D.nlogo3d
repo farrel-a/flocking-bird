@@ -195,6 +195,7 @@ to find-flockmates  ;; turtle reporter
 end
 
 to fall ;; dead-bird procedure
+  set shape "airplane"
   if zcor > min-pzcor + 1
     [ set zcor zcor - 0.5 ]
 end
