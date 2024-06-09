@@ -1,6 +1,6 @@
 breed [ birds bird ]
 breed [ dead-birds dead-bird ]
-
+globals [wind-x wind-y]
 
 birds-own [
   flockmates         ;; agentset of nearby turtles
@@ -48,6 +48,8 @@ end
 ;; Runtime Procedures
 ;;
 to go
+  set wind-x wind-constant-x
+  set wind-y wind-constant-y
   ask birds
   [ flock
     ;; if we've hit something
@@ -92,6 +94,9 @@ to flock  ;; bird procedure
   ;; the new velocity of the bird is sum of the acceleration
   ;; and the old velocity.
   set velocity (add velocity acceleration)
+
+  ;; Windy condition
+  set velocity (add velocity (list wind-x wind-y 0))
 
   ;; keep the velocity within the accepted range
   if magnitude velocity > max-velocity
@@ -342,10 +347,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-186
-405
-358
-438
+189
+440
+361
+473
 wander-constant
 wander-constant
 0
@@ -357,10 +362,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-186
-370
-358
-403
+189
+405
+361
+438
 world-center-constant
 world-center-constant
 0
@@ -372,10 +377,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-13
-370
-185
-403
+16
+405
+188
+438
 center-constant
 center-constant
 0
@@ -387,10 +392,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-13
-405
-185
-438
+16
+440
+188
+473
 velocity-constant
 velocity-constant
 0
@@ -479,10 +484,10 @@ NIL
 0
 
 SWITCH
-105
-336
-277
-369
+106
+340
+278
+373
 vertical-spacing?
 vertical-spacing?
 0
@@ -490,10 +495,10 @@ vertical-spacing?
 -1000
 
 SLIDER
-103
-439
-275
-472
+106
+474
+278
+507
 avoidance-constant
 avoidance-constant
 0
@@ -548,6 +553,36 @@ NIL
 NIL
 NIL
 1
+
+SLIDER
+16
+371
+188
+404
+wind-constant-x
+wind-constant-x
+0
+1
+0.3
+0.1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+196
+373
+368
+406
+wind-constant-y
+wind-constant-y
+0
+1
+0.3
+0.1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?
